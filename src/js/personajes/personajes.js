@@ -1,28 +1,6 @@
-const main = document.querySelector("main");
-const footer = document.getElementById("footer");
-const characterMenu = document.getElementById("character-menu");
-const locationMenu = document.getElementById("location-menu");
+import {main, footer, nextUrl, prevUrl} from '../index'
 
-let nextUrl;
-let prevUrl;
-
-
-getAllCharacters()
-
-/* MENU PERSONAJES */
-characterMenu.addEventListener("click", () => {
-  getAllCharacters();
-});
-
-/* MENU LOCALIZACIONES */
-locationMenu.addEventListener("click", () => {
-  getAllLocations();
-});
-
-
-
-/* Obtener todos los personajes */
-function getAllCharacters(
+export function getAllCharacters(
   url = "https://rickandmortyapi.com/api/character?page=1"
 ) {
   main.className = "";
@@ -33,7 +11,7 @@ function getAllCharacters(
     .then((data) => {
       nextUrl = data.info.next;
       prevUrl = data.info.prev;
-      console.log(data);
+      console.log(data)
       removeAllChilds(main);
       removeAllChilds(footer);
 
@@ -89,56 +67,8 @@ function getAllCharacters(
     `
       );
       footer.append(buttons);
+      
     });
 }
 
 
-
-
-
-/* OBTENER TODAS LOCALIZACIONES */
-
-function getAllLocations(url = "https://rickandmortyapi.com/api/location") {
-  main.className = "";
-  main.classList.add("all-characters-main");
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      nextUrl = data.info.next;
-      prevUrl = data.info.prev;
-
-      removeAllChilds(main);
-      removeAllChilds(footer);
-
-      data.results.forEach((location) => {
-        const article = document.createRange().createContextualFragment(
-          `
-    <article class="all-characters-container" id="${location.id}" onclick="">
-      <div class="all-characters-name">
-        <h2>${location.name}</h2>
-        <span>${location.type}</span>
-        <span>${location.dimenson}</span>
-      </div>
-    </article>
-    `
-        );
-        main.append(article);
-      });
-
-      const buttons = document.createRange().createContextualFragment(
-        `
-    <button id="backward" onclick= "prevUrl ? getAllLocations(prevUrl) : ''"><img src="images/backward.svg" alt=""></button>
-    <button id="forward" onclick= "nextUrl ? getAllLocations(nextUrl) : ''"><img src="images/forward.svg" alt=""></button>
-  `
-      );
-      footer.append(buttons);
-    });
-}
-
-
-
-/* ELIMINAR HIJOS */
-function removeAllChilds(main) {
-  while (main.hasChildNodes()) main.removeChild(main.firstChild);
-}
