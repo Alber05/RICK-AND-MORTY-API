@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@font-face {
+  font-family: "Rick and Morty";
+  src: url("../../fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  background-image: url("./src/images/bg.jpg");
+  background-repeat: none;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 4rem 0;
+  gap: 2rem;
+}
+header .logo-container {
+  height: 100%;
+  width: 50%;
+}
+@media (min-width: 1024px) {
+  header .logo-container {
+    width: 25%;
+  }
+}
+header .logo-container img {
+  width: 100%;
+}
+header .browser-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+  font-family: "Rick and Morty";
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  header .browser-container {
+    width: 40%;
+  }
+}
+header .browser-container input {
+  width: 100%;
+  height: 3.5rem;
+  background-color: rgba(23, 159, 185, 0.31);
+  border: 2px solid #c7d555;
+  border-radius: 1.2rem;
+  color: #c7d555;
+  padding: 0.5rem;
+  outline: none;
+}
+header .browser-container .tags-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+header .browser-container .tags-container button {
+  background-color: rgba(23, 159, 185, 0.31);
+  border: 2px solid #c7d555;
+  border-radius: 1.2rem;
+  color: #c7d555;
+  padding: 0.5rem;
+  outline: none;
+}
+header .browser-container .tags-container button:hover {
+  box-shadow: 0px 0px 10px #c7d555;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* MAIN TODOS LOS PERSONAJES*/
+.all-characters-main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+.all-characters-main .all-characters-container {
+  background-color: rgba(240, 239, 239, 0.1);
+  border-radius: 1.2rem;
+  flex-grow: 1;
+  max-width: 300px;
+  overflow: hidden;
+  transition: height 1s;
+}
+.all-characters-main .all-characters-container .image-container {
+  filter: drop-shadow(0px 0px 5px #c7d555);
+  overflow: hidden;
+  width: 60%;
+  margin: 2rem auto;
+}
+.all-characters-main .all-characters-container .image-container img {
+  width: 100%;
+  border-radius: 50%;
+}
+.all-characters-main .all-characters-container .all-characters-name {
+  width: 100%;
+  background-color: rgba(16, 31, 50, 0.9);
+  text-align: center;
+  padding: 1.5rem 0;
+  display: block;
+}
+.all-characters-main .all-characters-container .all-characters-name h2 {
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: "Rick and Morty";
+  color: #17adca;
+  text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+  filter: drop-shadow(0px 0px 2px #c7d555);
+  margin-top: 0.5rem;
+  color: white;
+}
+.all-characters-main .all-characters-container .all-characters-info {
+  background-color: rgba(16, 31, 50, 0.9);
+  transition: height 0.1s;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  transition: height 0.4s ease-out;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 90%;
+}
+.all-characters-main .all-characters-container .all-characters-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.all-characters-main .all-characters-container .all-characters-info .status-info div {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.all-characters-main .all-characters-container .all-characters-info .status-info div img {
+  height: 2rem;
+}
+
+.all-characters-container:hover {
+  box-shadow: 0px 0px 10px #c7d555;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.all-characters-container:hover .all-characters-info {
+  height: 22rem;
+}
+
+/*!MAIN TODOS LOS PERSONAJES */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+  width: 90%;
+  margin: 2rem auto;
+  gap: 2rem;
+}
+footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+}
+footer button img {
+  width: 4rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
