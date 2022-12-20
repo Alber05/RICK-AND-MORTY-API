@@ -102,16 +102,21 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 5rem;
+ 
 
-  .all-characters-container {
+  .all-characters__container {
     background-color: rgba(240, 239, 239, 0.1);
     border-radius: 1.2rem;
     flex-grow: 1;
     max-width: 300px;
     overflow: hidden;
     transition: height 1s;
+    height: calc(496.94px - 22rem);
 
-    .image-container {
+   
+
+
+    .all-characters__image-container {
       filter: drop-shadow(0px 0px 5px #c7d555);
       overflow: hidden;
       width: 60%;
@@ -123,7 +128,7 @@ header {
       }
     }
 
-    .all-characters-name {
+    .all-characters__name {
       width: 100%;
       background-color: rgba(16, 31, 50, 0.9);
       text-align: center;
@@ -142,10 +147,11 @@ header {
         color: white;
       }
     }
-    .all-characters-info {
+
+    .all-characters__info {
       background-color: rgba(16, 31, 50, 0.9);
-      transition: height 0.1s;
-      height: 0;
+      
+      height: 22rem;
       position: relative;
       overflow: hidden;
       color: white;
@@ -156,7 +162,7 @@ header {
       justify-content: space-evenly;
       width: 90%;
 
-      div {
+      .info__wrapper {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -166,28 +172,32 @@ header {
         text-align: center;
       }
 
-      .status-info div {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-     
+      .status__wrapper {
 
-        img {
-          height: 2rem;
+        .status {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          img {
+            height: 2rem;
+          }
         }
       }
     }
   }
 }
 
-.all-characters-container:hover {
+.all-characters__container:hover {
   box-shadow: 0px 0px 10px #c7d555;
   cursor: pointer;
   transform: scale(1.1);
+}
 
-  .all-characters-info {
-    height: 22rem;
-  }
+.all-characters__container.expand{
+  height: 496.94px;
 }
 
 /*!MAIN TODOS LOS PERSONAJES */

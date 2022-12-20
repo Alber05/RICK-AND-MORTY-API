@@ -103,32 +103,33 @@ header .browser-container .tags-container button:hover {
   flex-wrap: wrap;
   gap: 5rem;
 }
-.all-characters-main .all-characters-container {
+.all-characters-main .all-characters__container {
   background-color: rgba(240, 239, 239, 0.1);
   border-radius: 1.2rem;
   flex-grow: 1;
   max-width: 300px;
   overflow: hidden;
   transition: height 1s;
+  height: calc(496.94px - 22rem);
 }
-.all-characters-main .all-characters-container .image-container {
+.all-characters-main .all-characters__container .all-characters__image-container {
   filter: drop-shadow(0px 0px 5px #c7d555);
   overflow: hidden;
   width: 60%;
   margin: 2rem auto;
 }
-.all-characters-main .all-characters-container .image-container img {
+.all-characters-main .all-characters__container .all-characters__image-container img {
   width: 100%;
   border-radius: 50%;
 }
-.all-characters-main .all-characters-container .all-characters-name {
+.all-characters-main .all-characters__container .all-characters__name {
   width: 100%;
   background-color: rgba(16, 31, 50, 0.9);
   text-align: center;
   padding: 1.5rem 0;
   display: block;
 }
-.all-characters-main .all-characters-container .all-characters-name h2 {
+.all-characters-main .all-characters__container .all-characters__name h2 {
   width: 100%;
   font-size: 1.5rem;
   font-family: "Rick and Morty";
@@ -138,10 +139,9 @@ header .browser-container .tags-container button:hover {
   margin-top: 0.5rem;
   color: white;
 }
-.all-characters-main .all-characters-container .all-characters-info {
+.all-characters-main .all-characters__container .all-characters__info {
   background-color: rgba(16, 31, 50, 0.9);
-  transition: height 0.1s;
-  height: 0;
+  height: 22rem;
   position: relative;
   overflow: hidden;
   color: white;
@@ -152,7 +152,7 @@ header .browser-container .tags-container button:hover {
   justify-content: space-evenly;
   width: 90%;
 }
-.all-characters-main .all-characters-container .all-characters-info div {
+.all-characters-main .all-characters__container .all-characters__info .info__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -161,22 +161,25 @@ header .browser-container .tags-container button:hover {
   font-size: 1.4rem;
   text-align: center;
 }
-.all-characters-main .all-characters-container .all-characters-info .status-info div {
+.all-characters-main .all-characters__container .all-characters__info .status__wrapper .status {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
 }
-.all-characters-main .all-characters-container .all-characters-info .status-info div img {
+.all-characters-main .all-characters__container .all-characters__info .status__wrapper .status img {
   height: 2rem;
 }
 
-.all-characters-container:hover {
+.all-characters__container:hover {
   box-shadow: 0px 0px 10px #c7d555;
   cursor: pointer;
   transform: scale(1.1);
 }
-.all-characters-container:hover .all-characters-info {
-  height: 22rem;
+
+.all-characters__container.expand {
+  height: 496.94px;
 }
 
 /*!MAIN TODOS LOS PERSONAJES */
