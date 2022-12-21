@@ -98,10 +98,11 @@ function renderAllCharacters(data) {
 
 function expandCard() {
   const articulo = document.querySelectorAll(".all-characters__container");
-  
-  articulo.forEach((elemento) => {
-    elemento.addEventListener("click", (e) => {
-      elemento.classList.toggle("expand")
+  const info = document.getElementsByClassName("all-characters_info");
+
+  articulo.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("expand")
     })
   })
  

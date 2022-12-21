@@ -182,6 +182,10 @@ header .browser-container .tags-container button:hover {
   height: 496.94px;
 }
 
+.all-characters__info.visible {
+  display: flex;
+}
+
 /*!MAIN TODOS LOS PERSONAJES */
 footer {
   display: flex;

@@ -150,7 +150,6 @@ header {
 
     .all-characters__info {
       background-color: rgba(16, 31, 50, 0.9);
-      
       height: 22rem;
       position: relative;
       overflow: hidden;
@@ -199,6 +198,11 @@ header {
 .all-characters__container.expand{
   height: 496.94px;
 }
+
+.all-characters__info.visible{
+  display: flex;
+}
+
 
 /*!MAIN TODOS LOS PERSONAJES */
 
