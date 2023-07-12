@@ -1,6 +1,4 @@
-import {removeAllChilds } from "../index.js";
-
-
+import { removeAllChilds } from "../index.js";
 
 // Renderiza los botones
 export function renderButtons() {
@@ -14,17 +12,15 @@ export function renderButtons() {
   footer.append(buttons);
 }
 
-
 // Botones de paginación
-export function pageButtons(prevUrl, nextUrl, func) {
+export function pageButtons(prevUrl, nextUrl, getData) {
   const backward = document.getElementById("backward");
   const forward = document.getElementById("forward");
   backward.addEventListener("click", () => {
-    prevUrl ? func(prevUrl) : "";
+    prevUrl ? getData(prevUrl) : "";
   });
 
   forward.addEventListener("click", () => {
-    nextUrl ? func(nextUrl) : "";
+    nextUrl ? getData(nextUrl) : "";
   });
 }
-

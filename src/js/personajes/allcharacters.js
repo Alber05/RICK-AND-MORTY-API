@@ -1,7 +1,9 @@
 import { removeAllChilds } from "../index.js";
 import { renderButtons, pageButtons } from "../buttons/buttons.js";
 
+
 const main = document.querySelector("main");
+const browser = document.getElementById("browser");
 
 let nextUrl;
 let prevUrl;
@@ -11,9 +13,11 @@ export async function getAllCharacters(url) {
   let data = await getCharactersData(url);
   prevUrl = data.info.prev;
   nextUrl = data.info.next;
-  renderAllCharacters(data);
+
+  renderAllCharacters(data.results);
   renderButtons();
   pageButtons(prevUrl, nextUrl, getAllCharacters);
+  filterCharacters(data);
   expandCard()
 }
 
@@ -27,27 +31,25 @@ export function allCharactersMenu() {
 }
 
 // Fetch de todos los personajes
-async function getCharactersData(
-  url = "https://rickandmortyapi.com/api/character?page=1"
-) {
-  let datos = await fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    });
-
-  return datos;
+async function getCharactersData(url = "https://rickandmortyapi.com/api/character?page=1") {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log('Error:', error);
+    throw error;
+  }
 }
 
 // Función para pintar todos los personajes
 function renderAllCharacters(data) {
-  main.className = "";
-  main.classList.add("all-characters-main");
+
 
   removeAllChilds(main);
 
-  data.results.forEach((characters) => {
-    const article = document.createRange().createContextualFragment(    `
+  data.forEach((characters) => {
+    const article = document.createRange().createContextualFragment(`
       <article class="all-characters__container" id="${characters.id}">
         <div class="all-characters__image-container">
           <img src="${characters.image}" alt="Imagen de ${characters.name}">
@@ -61,7 +63,7 @@ function renderAllCharacters(data) {
               <div class="status">
                 <span>${characters.status}</span>
                 <img src="${
-                    characters.status == "Alive"
+                  characters.status == "Alive"
                     ? "./src/images/alive.png"
                     : characters.status == "Dead"
                     ? "./src/images/dead.png"
@@ -77,36 +79,40 @@ function renderAllCharacters(data) {
             <span>Origen del personaje</span>
               <span>${
                 characters.origin.name.includes("Earth")
-                ? "Earth"
-                : characters.location.name
-                }
+                  ? "Earth"
+                  : characters.location.name
+              }
               </span>
-          </div>         
+          </div>
+          <button class="info__wrapper more-info">More Info</button>         
         </section>
         </article>
-      `
-    );
+      `);
     main.append(article);
   });
-
-  
-
-
 }
 
 // Expandir tarjetas
 
-function expandCard() {
-  const articulo = document.querySelectorAll(".all-characters__container");
-  const info = document.getElementsByClassName("all-characters_info");
+export function expandCard() {
+  const tarjetas = document.querySelectorAll(".all-characters__container");
 
-  articulo.forEach((card) => {
-    card.addEventListener("click", () => {
-      card.classList.toggle("expand")
-    })
-  })
- 
+  tarjetas.forEach((tarjeta) => {
+    const info = tarjeta.querySelector(".all-characters__info");
+
+    tarjeta.addEventListener("click", () => {
+      info.classList.toggle("visible");
+      tarjeta.classList.toggle("expand");
+    });
+  });
 }
 
-
-
+function filterCharacters(data) {
+  browser.addEventListener("input", (e) => {
+    const filteredCharacters = data.results.filter((character) =>
+      character.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    renderAllCharacters(filteredCharacters);
+    expandCard()
+  });
+}

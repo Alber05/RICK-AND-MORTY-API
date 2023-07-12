@@ -109,7 +109,7 @@ header .browser-container .tags-container button:hover {
   flex-grow: 1;
   max-width: 300px;
   overflow: hidden;
-  transition: height 1s;
+  transition: height 0.5s ease-in-out;
   height: calc(496.94px - 22rem);
 }
 .all-characters-main .all-characters__container .all-characters__image-container {
@@ -126,7 +126,7 @@ header .browser-container .tags-container button:hover {
   width: 100%;
   background-color: rgba(16, 31, 50, 0.9);
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   display: block;
 }
 .all-characters-main .all-characters__container .all-characters__name h2 {
@@ -136,18 +136,16 @@ header .browser-container .tags-container button:hover {
   color: #17adca;
   text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
   filter: drop-shadow(0px 0px 2px #c7d555);
-  margin-top: 0.5rem;
   color: white;
 }
 .all-characters-main .all-characters__container .all-characters__info {
   background-color: rgba(16, 31, 50, 0.9);
-  height: 22rem;
-  position: relative;
+  height: 0;
   overflow: hidden;
   color: white;
-  transition: height 0.4s ease-out;
-  padding: 0 2rem;
+  transition: height 0.5s ease-in-out;
   display: flex;
+  padding: 0rem 2rem;
   flex-direction: column;
   justify-content: space-evenly;
   width: 90%;
@@ -171,19 +169,27 @@ header .browser-container .tags-container button:hover {
 .all-characters-main .all-characters__container .all-characters__info .status__wrapper .status img {
   height: 2rem;
 }
+.all-characters-main .all-characters__container .all-characters__info .more-info {
+  width: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+  justify-content: center;
+  font-weight: 700;
+  align-items: center;
+  border-radius: 1.2rem;
+}
+.all-characters-main .all-characters__container .all-characters__info.visible {
+  height: 22rem;
+  display: flex;
+}
+.all-characters-main .all-characters__container.expand {
+  height: 496.94px;
+}
 
 .all-characters__container:hover {
   box-shadow: 0px 0px 10px #c7d555;
   cursor: pointer;
   transform: scale(1.1);
-}
-
-.all-characters__container.expand {
-  height: 496.94px;
-}
-
-.all-characters__info.visible {
-  display: flex;
 }
 
 /*!MAIN TODOS LOS PERSONAJES */
